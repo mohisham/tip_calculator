@@ -58,15 +58,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Text("What is your bill amount: "),
+                Text("What is your bill amount: ", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300, color: Colors.black54)),
                 Container(
                     width: 100,
                     padding: EdgeInsets.only(left: 20),
                     child: TextField(
+                      controller: _amountController,
                       onChanged: (text) {
-
                         _billAmount = double.parse(text);
-
                         setState(() {
                           _tip = _billAmount * (_tipPercentage/100);
                           _total = _tip + _billAmount;
@@ -79,24 +78,33 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("What is the tip percentage: "),
+                Text("What is the tip percentage: ", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300, color: Colors.black54)),
                 Container(
                     width: 100,
                     padding: EdgeInsets.only(left: 20),
-                    child: TextField()
+                    child: TextField(
+                      controller: _tipController,
+                      onChanged: (text) {
+                        _tipPercentage = int.parse(text);
+                        setState(() {
+                          _tip = _billAmount * (_tipPercentage/100);
+                          _total = _tip + _billAmount;
+                        });
+                      },
+                    )
                 ),
               ],
             ),
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your tip is: $_tip")
+                Text("Your tip is: $_tip", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
               ],
             ),
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your total is: $_total")
+                Text("Your total is: $_total", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
               ],
             ),
           ],
