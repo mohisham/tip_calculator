@@ -33,37 +33,45 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text("What is your bill amount: "),
-              Container(
-                  width: 100,
-                  child: TextField()
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Text("What is your bill amount: "),
-              Container(
-                  width: 100,
-                  child: TextField()
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Text("Your tip is: ")
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Text("Your total is: ")
-            ],
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text("What is your bill amount: "),
+                Container(
+                    width: 100,
+                    padding: EdgeInsets.only(left: 20),
+                    child: TextField()
+                ),
+              ],
+            ),
+            SizedBox(height: 40,),
+            Row(
+              children: <Widget>[
+                Text("What is the tip percentage: "),
+                Container(
+                    width: 100,
+                    padding: EdgeInsets.only(left: 20),
+                    child: TextField()
+                ),
+              ],
+            ),
+            SizedBox(height: 40,),
+            Row(
+              children: <Widget>[
+                Text("Your tip is: ")
+              ],
+            ),
+            SizedBox(height: 40,),
+            Row(
+              children: <Widget>[
+                Text("Your total is: ")
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
