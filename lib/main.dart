@@ -98,13 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your tip is: $_tip", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
+                Text("Your tip is: \$$_tip", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
               ],
             ),
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your total is: $_total", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
+                Text("Your total is: \$$_total", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
               ],
             ),
           ],
