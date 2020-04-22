@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Text("What is your bill amount: "),
+                Text("What is your bill amount: ", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300, color: Colors.black54)),
                 Container(
                     width: 100,
                     padding: EdgeInsets.only(left: 20),
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("What is the tip percentage: "),
+                Text("What is the tip percentage: ", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300, color: Colors.black54)),
                 Container(
                     width: 100,
                     padding: EdgeInsets.only(left: 20),
@@ -61,13 +61,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your tip is: ")
+                Text("Your tip is: ", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300, color: Colors.black54))
               ],
             ),
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your total is: ")
+                Text("Your total is: ", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300, color: Colors.black54))
               ],
             ),
           ],
