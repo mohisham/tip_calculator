@@ -27,6 +27,25 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  double _billAmount;
+  int _tipPercentage;
+  double _tip;
+  double _total;
+  final _tipController = TextEditingController();
+  final _amountController = TextEditingController();
+
+  @override
+  void initState() {
+    _billAmount = 0;
+    _tipPercentage = 15;
+    _tip = 0;
+    _total = 0;
+    _tipController.text = _tipPercentage.toString();
+    _amountController.text = _billAmount.toString();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                     width: 100,
                     padding: EdgeInsets.only(left: 20),
-                    child: TextField()
+                    child: TextField(
+                      onChanged: (text) {
+
+                        _billAmount = double.parse(text);
+
+                        setState(() {
+                          _tip = _billAmount * (_tipPercentage/100);
+                          _total = _tip + _billAmount;
+                        });
+                      },
+                    )
                 ),
               ],
             ),
@@ -61,13 +90,13 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your tip is: ")
+                Text("Your tip is: $_tip")
               ],
             ),
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your total is: ")
+                Text("Your total is: $_total")
               ],
             ),
           ],
