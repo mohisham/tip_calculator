@@ -11,21 +11,21 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TipCalculator(title: 'Tip Calculator'),
+      home: MyHomePage(title: 'Tip Calculator'),
     );
   }
 }
 
-class TipCalculator extends StatefulWidget {
-  TipCalculator({Key key, this.title}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _TipCalculatorState createState() => _TipCalculatorState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _TipCalculatorState extends State<TipCalculator> {
+class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,38 @@ class _TipCalculatorState extends State<TipCalculator> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Text("What is your bill amount: "),
+      body: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text("What is your bill amount: "),
+              Container(
+                  width: 100,
+                  child: TextField()
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Text("What is your bill amount: "),
+              Container(
+                  width: 100,
+                  child: TextField()
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Text("Your tip is: ")
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Text("Your total is: ")
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
