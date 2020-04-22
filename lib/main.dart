@@ -64,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.only(left: 20),
                     child: TextField(
                       controller: _amountController,
+                      keyboardType: TextInputType.number,
                       onChanged: (text) {
                         _billAmount = double.parse(text);
                         setState(() {
@@ -84,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.only(left: 20),
                     child: TextField(
                       controller: _tipController,
+                      keyboardType: TextInputType.number,
                       onChanged: (text) {
                         _tipPercentage = int.parse(text);
                         setState(() {
@@ -95,16 +97,58 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            SizedBox(height: 40,),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                RaisedButton(
+                  color: Colors.grey.shade300,
+                  child: Text("10%"),
+                  onPressed: () {
+                    _tipController.text = "10";
+                    setState(() {
+                      _tipPercentage = 10;
+                      _tip = _billAmount * (_tipPercentage/100);
+                      _total = _tip + _billAmount;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  color: Colors.grey.shade300,
+                  child: Text("18%"),
+                  onPressed: () {
+                    _tipController.text = "18";
+                    setState(() {
+                      _tipPercentage = 18;
+                      _tip = _billAmount * (_tipPercentage/100);
+                      _total = _tip + _billAmount;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  color: Colors.grey.shade300,
+                  child: Text("20%"),
+                  onPressed: () {
+                    _tipController.text = "20";
+                    setState(() {
+                      _tipPercentage = 20;
+                      _tip = _billAmount * (_tipPercentage/100);
+                      _total = _tip + _billAmount;
+                    });
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 20,),
             Row(
               children: <Widget>[
-                Text("Your tip is: $_tip", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
+                Text("Your tip is: \$${_tip.toStringAsFixed(2)}", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
               ],
             ),
             SizedBox(height: 40,),
             Row(
               children: <Widget>[
-                Text("Your total is: $_total", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
+                Text("Your total is: \$${_total.toStringAsFixed(2)}", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: Colors.black54))
               ],
             ),
           ],
