@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Row(
             children: <Widget>[
-              Text("What is your bill amount: "),
+              Text("What is the tip percentage: "),
               Container(
                   width: 100,
                   child: TextField()
